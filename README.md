@@ -6,7 +6,7 @@ Chef cookbook to install Nginx with Chef Solo on Linux. Demonstrates the use of 
 - templates, and 
 - roles.
 
-The commit history goes through the evolution of the cookbook as these features are introduced for educational purposes.
+The commits labeled `V1` through `V6` in the [history](https://github.com/lrakai/chef-solo-linux/commits/master) go through the evolution of the cookbook as these features are introduced for educational purposes.
 
 ## Running
 ### Recipe
