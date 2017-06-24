@@ -32,7 +32,7 @@
     },
     "storageAccountName": {
       "type": "string",
-      "defaultValue": "labdisks01"
+      "defaultValue": "disk"
     },
     "storageAccountType": {
       "type": "string",
