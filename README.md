@@ -9,11 +9,19 @@ Chef cookbook to install Nginx with Chef Solo on Linux. Demonstrates the use of 
 The commit history goes through the evolution of the cookbook as these features are introduced for educational purposes.
 
 ## Running
+### Recipe
 From inside `src/`:
 ```shell
 sudo chef-solo -c solo.rb -o 'recipe[lab]'
 ```
 The Nginx web site is available on port 80.
+
+### Roles
+Switch the Chef node between functioning as a high or low traffic web server with the `web-high` and `web-low` roles:
+```shell
+sudo chef-solo -c solo.rb -o 'role[web-high]'
+sudo chef-solo -c solo.rb -o 'role[web-low]'
+```
 
 ## Try it Yourself
 ### Setting Up
