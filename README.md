@@ -9,8 +9,9 @@ Chef cookbook to install Nginx with Chef Solo on Linux. Demonstrates the use of 
 The commit history goes through the evolution of the cookbook as these features are introduced for educational purposes.
 
 ## Running
+From inside `src/`:
 ```shell
-sudo chef-solo -c src/solo.rb -o 'recipe[lab]'
+sudo chef-solo -c solo.rb -o 'recipe[lab]'
 ```
 The Nginx web site is available on port 80.
 
@@ -21,16 +22,19 @@ An Azure RM template is included in `infrastructure/` to create a virtual machin
 Login-AzureRmAccount
 New-AzureRmResourceGroup -Name cloud-kitchen -Location "Central US"
 New-AzureRmResourceGroupDeployment -Name ChefSolo -ResourceGroupName cloud-kitchen -TemplateFile .\infrastructure\arm-template.json
+Get-AzureRmPublicIpAddress -Name lab-vm-ip -ResourceGroupName cloud-kitchen | Select -ExpandProperty IpAddress
 ```
 
 SSH into the virtual machine:
 - user: `student`
-- password: `1Lab_Virtual_Machine!`) 
+- password: `1Lab_Virtual_Machine!`
 
 Then clone this repository and run the init script to get Chef
 ```shell
+sudo yum install -y git
 git clone https://github.com/lrakai/chef-solo-linux.git
-./init.sh
+cd chef-solo-linux
+bash init.sh
 ```
 
 ### Tearing Down
