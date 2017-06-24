@@ -1,4 +1,4 @@
-package 'epel-release' # package repository for nginx
+package node['packages']['nginx_repo']
 package 'nginx'
 
 service 'nginx' do
@@ -7,12 +7,14 @@ service 'nginx' do
   action [ :enable, :start ]
 end
 
-cookbook_file '/var/www/index.html' do
- action :create
- notifies :reload, 'service[nginx]', :immediately
+directory node['nginx']['root']
+
+cookbook_file "#{node['nginx']['root']}/index.html" do
+  action :create
+  notifies :reload, 'service[nginx]', :immediately
 end
 
-cookbook_file '/etc/nginx/nginx.conf' do
- action :create
- notifies :reload, 'service[nginx]', :immediately
+template '/etc/nginx/nginx.conf' do
+  action :create
+  notifies :reload, 'service[nginx]', :immediately
 end
