@@ -1,8 +1,7 @@
 #!/bin/bash
 
-sudo su -
-
 # install Chef with omnitruck script (specify Chef version 13)
-curl -L https://omnitruck.chef.io/install.sh | bash -s -- -v 13
+sudo su -c "curl -L https://omnitruck.chef.io/install.sh | bash -s -- -v 13"
 
-exit
+# change into the Chef repo parent directory
+cd src
