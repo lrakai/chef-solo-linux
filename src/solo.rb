@@ -1,4 +1,4 @@
-repo = '/home/student/chef-repo'
+repo = Dir.pwd + '/chef-repo'
 
 # Paths
 cookbook_path  repo + '/cookbooks'
