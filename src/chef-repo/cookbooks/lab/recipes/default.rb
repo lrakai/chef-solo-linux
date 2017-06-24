@@ -7,12 +7,12 @@ service 'nginx' do
   action [ :enable, :start ]
 end
 
-directory '/var/www'
-
 cookbook_file '/var/www/index.html' do
  action :create
+ notifies :reload, 'service[nginx]', :immediately
 end
 
 cookbook_file '/etc/nginx/nginx.conf' do
  action :create
+ notifies :reload, 'service[nginx]', :immediately
 end
